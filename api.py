@@ -70,8 +70,13 @@ def usuario_por_id(id:int,sesion:Session=Depends(generador_sesion)):
 
 @app.get("/compras/{id}")
 def compras_por_id(id:int,sesion:Session=Depends(generador_sesion)):
-    print("Api consultando usuario por id")
-    return repo.usuario_por_id(sesion, id)
+    print("Api consultando las compras por id")
+    return repo.compras_por_id(sesion, id)
+
+@app.get("/fotos/{id}")
+def fotos_por_id(id:int,sesion:Session=Depends(generador_sesion)):
+    print("Api consultando las fotos por id")
+    return repo.fotos_por_id(sesion, id)
 
 @app.get("/usuarios")
 def lista_usuarios(*,lote:int=10,pag:int,orden:Optional[str]=None): #parametros de consulta ?lote=10&pag=1
